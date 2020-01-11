@@ -1,0 +1,370 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=8">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta http-equiv="Cache" content="no-cache">
+		<title>笑江湖的博客</title>
+		<!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/animate.css" rel="stylesheet">
+		<link href="css/hover.css" rel="stylesheet">
+		<link href="css/fontawesome.min.css" rel="stylesheet">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/config.js"></script>
+	</head>
+	<body>
+		<!-- Navigation -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top animated bounce">
+			<div class="container">
+				<a class="navbar-brand" href="./">@笑江湖</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="./"><i class="fas fa-home"></i> 主页<span class="sr-only">(当前)</span></a>
+						</li>
+
+						<li id="menu_category_1" class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" style="cursor:pointer" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="fas fa-ellipsis-h"></i> WEB编程
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#"><i class="fas fa-hand-point-right"></i> 数据库/存储相关</a>
+								<a class="dropdown-item" href="#"> <i class="fas fa-hand-point-right"></i> JAVA编程</a>
+								<a class="dropdown-item" href="#"> <i class="fas fa-hand-point-right"></i> HTML-JS-CSS编程</a>
+							</div>
+						</li>
+
+						<li id="menu_category_2" class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" style="cursor:pointer" id="navbarDropdown_2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="fas fa-ellipsis-h"></i> 态度与见识
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#"> <i class="fas fa-hand-point-right"></i> 态度</a>
+								<a class="dropdown-item" href="#"> <i class="fas fa-hand-point-right"></i> 见识</a>
+							</div>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+		<div class="container animated pulse">
+
+			<div class="row">
+				<!-- Blog Entries Column -->
+				<div class="col-lg-8" id="post_container_id">
+					<hr>
+				     <ul class="nav nav-pills nav-fill flex-column flex-sm-row mb-3" id="pills-tab" role="tablist">
+					  <li class="nav-item">
+					    <a class="nav-link active hvr-sweep-to-right" id="pills-latest-tab" data-toggle="pill" href="#pills-latest" role="tab" aria-controls="pills-latest" aria-selected="true" onclick="loadposts('pills-latest','pills-latest')"><i class="far fa-calendar-alt"></i> 最新添加</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link hvr-sweep-to-right" id="pills-view-tab" data-toggle="pill" href="#pills-view" role="tab" aria-controls="pills-view" aria-selected="false" onclick="loadposts('pills-view','pills-view')"><i class="far fa-eye"></i> 观看最多</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link hvr-sweep-to-right" id="pills-comment-tab" data-toggle="pill" href="#pills-comment" role="tab" aria-controls="pills-comment" aria-selected="false" onclick="loadposts('pills-comment','pills-comment')"><i class="far fa-comments"></i> 评论最多</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link hvr-sweep-to-right" id="pills-like-tab" data-toggle="pill" href="#pills-like" role="tab" aria-controls="pills-like" aria-selected="false" onclick="loadposts('pills-like','pills-like')"><i class="fas fa-heart"></i> 最受欢迎</a>
+					  </li>
+					</ul>
+					<div class="tab-content" id="pills-tabContent">
+					  <div class="tab-pane fade show active" id="pills-latest" role="tabpanel" aria-labelledby="pills-latest-tab"><script id="pills-latest_1" type="text/html">
+						  <h1>{{pillsName}}</h1>
+						  <!-- Blog Post -->
+						  {{each data as item i}}
+						  <div class="card mb-4 hvr-glow" style="min-width: 730px">
+							  {{each item.taglist as item2 j}}<a href="#" data-toggle="tooltip" title="Bulunduğu Kategori" style="position: relative;" class="badge badge-success">{{item2}}</a>
+							  {{/each}}
+							  <div class="card-body">
+								  <h2 class="card-title">{{item.title}}</h2>
+								  <p class="card-text">{{item.introduction}}</p>
+								  <a href="javascript:topost({{item.cid}})" class="btn btn-primary hvr-pulse-grow" style="font-family:'Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;">阅读更多&rarr;</a>
+							  </div>
+							  <div style="cursor: default;" class="card-footer text-muted">
+								<span class="pl-1" data-toggle="tooltip" title="作者">
+									<i class="fas fa-user-edit"></i> @笑江湖
+								</span>
+								<span class="pl-1" data-toggle="tooltip" title="发布时间">
+									<i class="fas fa-clock"></i> {{item.fa_clock}}
+								</span>
+								<span class="pl-1" data-toggle="tooltip" title="被阅读数">
+									<i class="fas fa-eye"></i> {{item.hits}}
+								</span>
+								<span class="pl-1" data-toggle="tooltip" title="喜欢人数">
+									<i class="fas fa-heart"></i> 0
+								</span>
+								<span class="pl-1" data-toggle="tooltip" title="评论数量">
+									<i class="fas fa-comments"></i> 0
+								</span>
+								<span class="pl-1" title="预计阅读时间" data-toggle="tooltip">
+									<i class="fas fa-book-reader"></i> 2 分钟
+								</span>
+							  </div>
+						  </div>
+						  {{/each}}</script>
+						  <!-- Blog Post -->
+					  </div>
+					  <div class="tab-pane fade" id="pills-view" role="tabpanel" aria-labelledby="pills-view-tab"></div>
+					  <div class="tab-pane fade" id="pills-comment" role="tabpanel" aria-labelledby="pills-comment-tab"></div>
+					  <div class="tab-pane fade" id="pills-like" role="tabpanel" aria-labelledby="pills-like-tab"></div>
+					</div>
+					<hr>
+	</div>
+	<!-- Sidebar Widgets Column -->
+	<div class="col-md-4">
+
+		<!-- Search Widget -->
+		<div class="card my-4">
+			<h5 class="card-header">检索</h5>
+			<div class="card-body">
+				<form action="/ara" method="GET">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text"><i class="fas fa-search"></i></div>
+						</div>
+						<input type="text" name="kelime" minlength="3" maxlength="50" class="form-control" placeholder="输入要搜索的内容..." required>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<!-- Categories Widget -->
+		<div class="card my-4">
+			<h5 class="card-header">分类</h5>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-lg-12">
+						<ul class="list-unstyled mb-0">
+							<li>
+								<a class="btn btn-outline-dark btn-sm btn-block mb-2"
+								href="#">
+								<i class="fab fa-slack-hash fa-lg"></i> Sunucu-Hosting
+								<span class="badge badge-primary float-right">1</span></a>
+							</li>
+							<li>
+								<a class="btn btn-outline-dark btn-sm btn-block mb-2"
+								href="#">
+								<i class="fab fa-slack-hash fa-lg"></i> PHP-LARAVEL
+								<span class="badge badge-primary float-right">0</span></a>
+							</li>
+							<li>
+								<a class="btn btn-outline-dark btn-sm btn-block mb-2"
+								href="#">
+								<i class="fab fa-slack-hash fa-lg"></i> Windows Programlama
+								<span class="badge badge-primary float-right">0</span></a>
+							</li>
+							<li>
+								<a class="btn btn-outline-dark btn-sm btn-block mb-2"
+								href="#">
+								<i class="fab fa-slack-hash fa-lg"></i> HTML-CSS-JAVASCRİPT
+								<span class="badge badge-primary float-right">0</span></a>
+							</li>
+
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- Profile Widget -->
+
+		<div class="card my-4">
+			<img style="width: 40%" class="card-img-top mx-auto d-block hvr-hang"
+			src="./images/pisilogo.png"  alt="Card image">
+			<p class="text-center">{笑江湖的IT世界}<br>{个人和技术博客}</p>
+			<hr>
+			<div class="social-icons justify-content-center d-flex justify-content-center mb-3">
+				<a target="_blank" href="#" class="facebook fab fa-facebook-f fa-2x ml-2"></a>
+				<a target="_blank" href="#" class="twitter fab fa-twitter fa-2x"></a>
+				<a target="_blank" href="#" class="instagram fab fa-instagram fa-2x"></a>
+			</div>
+		</div>
+
+		<!-- Side Widget -->
+		<div class="card my-4">
+			<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><i class="fas fa-chart-line"></i> 流行的文字</a>
+				</li>
+			</ul>
+
+			<div class="tab-content" id="myTabContent">
+				<!-- widget-post -->
+				<div class="widget-post">
+					<hr>
+					<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+						<div class="widget-post hvr-grow-rotate">
+							<a href="blog-post.html">
+								<img style="width: 80px;height: 80px;"
+								class="rounded-circle img-fluid d-block ml-1 mr-2 float-left" src="./photos/1/https-3344700_640.jpg" alt="">
+							</a>
+							<a href="blog-post.html" class="text-dark nounderline">
+								<h5>获取并安装免费SSL</h5>
+								<h6 data-toggle="tooltip" title="发布日期">
+									<i class="far fa-clock"></i> 7 小时前
+								</h6>
+							</a>
+						</div>
+					</div>
+					<hr>
+				</div>
+				<!-- widget-post-end -->
+			</div>
+
+		</div>
+		<!-- Side Widget -->
+
+		<!-- Side Widget -->
+		<div class="card my-4">
+			<h5 class="card-header">订阅(新文章自动推送)</h5>
+			<div class="card-body">
+				<form action="/abone-ol" method="POST">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text"><i class="far fa-envelope"></i></div>
+						</div>
+						<input type="text" class="form-control" name="email" placeholder="E-Mail 地址..." required>
+						<div class="input-group-append"> <i class="fas fa-up"></i> </div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- Side Widget -->
+
+			  <div class="card my-4">
+	          <h5 class="card-header">最近的评论</h5>
+	        <div class="list-group">
+	          <!-- Comment Panel -->
+	          <a href="#" class="list-group-item list-group-item-action">
+	      <div class="d-flex w-100 justify-content-between">
+	        <h6 class="mb-1"><i class="fas fa-newspaper"></i> {{评论标题}}</h6>
+	      </div>
+	      <p class="mb-1"><i class="far fa-comment-dots"></i> {{评论内容}} ...</p>
+	      <small><i class="far fa-clock"></i> {{1 分钟前}}</small>
+	      </a>
+	      <!-- Comment Panel -->
+	        </div>
+	      </div>
+		<!--<div class="card my-4">-->
+			<!--<a class="twitter-timeline" href="https://twitter.com/pisiblogcom?ref_src=twsrc%5Etfw">推特 by @笑傲江湖</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+		<!--</div>-->
+
+		<div class="card my-4">
+			<h5 class="card-header">最近评论 </h5>
+			<div class="card-body">
+				<blockquote class="blockquote">
+					<p class="mb-0"><i class="fas fa-quote-left"></i> Talk is cheap show me the code. <i class="fas fa-quote-right"></i></p>
+					<footer class="blockquote-footer"><cite title="Source Title">Linus Torvalds</cite></footer>
+				</blockquote>
+			</div>
+		</div>
+
+	</div>
+	</div>
+	<!-- /.row -->
+
+	</div>
+	<!-- /.container -->
+	<!-- Top Page Button -->
+	<a id="topBtn" class="fas fa-angle-up fa-3x hvr-grow"></a>
+
+	<footer class="footer mt-auto py-3 bg-dark">
+		<div class="container">
+			<span class="text-light">Copyright © 2019</span>
+		</div>
+	</footer>
+
+	</body>
+	<!-- Bootstrap core JavaScript -->
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/template-web.js"></script>
+	<script>
+		template.defaults.escape=false;
+		var posttemplate=""
+		$(document).ready(function(){
+			$('[data-toggle="tooltip"]').tooltip();
+			loadposts("pills-latest");
+
+			$.ajax({
+				url: './blog-post.html',
+				type: 'GET',
+				success: function (data) {
+					posttemplate=data;
+					// alert(posttemplate)
+				}
+			});
+		});
+		// Top Page Button
+		window.onscroll = function() {scrollFunction()};
+		function scrollFunction() {
+		  if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+		    document.getElementById("topBtn").style.display = "block";
+		  } else {
+		    document.getElementById("topBtn").style.display = "none";
+		  }
+		};
+		$("#topBtn").click(function() {
+	     $("html, body").animate({ scrollTop: 0 }, "slow");
+	     return false;
+	    });
+		function loadposts(pulls_id,tag){
+			var html="";
+			var url=purl+'/contents/show';
+			if(tag){
+				url+="?tag="+tag;
+			}
+			$.ajax({
+				url: url,
+				type: 'GET',
+				crossDomain: true,
+				xhrFields: {
+					withCredentials: true
+				},
+				dataType: 'json',
+				success: function (data) {
+					html += template('pills-latest_1',data);
+					document.getElementById(pulls_id).innerHTML=html;
+
+				}
+			});
+		}
+	    // Top Page Button End
+		function topost(cid){
+			var url=purl+'/contents/showone?cid='+cid;
+			$.ajax({
+				url: url,
+				type: 'GET',
+				crossDomain: true,
+				xhrFields: {
+					withCredentials: true
+				},
+				dataType: 'json',
+				success: function (data) {
+					if(data.code==0){
+						var contentHtml = template.render(posttemplate,data);
+						document.getElementById('post_container_id').innerHTML=contentHtml;
+					}else{
+						alert(data.msg)
+					}
+				}
+			});
+		}
+
+	</script>
+
+	</html>

@@ -1,0 +1,148 @@
+
+  <nav class="mt-4" aria-label="breadcrumb">
+	<ol class="breadcrumb">
+	  <li class="breadcrumb-item"><a href="./">回首页</a></li>
+	  <li class="breadcrumb-item active" aria-current="page">{{content.title}}</li>
+	</ol>
+  </nav>
+  <!-- Title -->
+  <h1 class="mt-4">{{content.title}}</h1>
+
+  <hr>
+  <!-- Post Content -->
+  <dev class="card my-4" >
+  {{content.content}}
+  </dev>
+  <p class="text-center" data-toggle="tooltip" title="Beğendim">
+	<a href="#"  class="fas fa-heart fa-2x like_button hvr-bounce-in"></a>
+  </p>
+  <hr>
+
+  <span class="pl-1" data-toggle="tooltip" title="Yazar">
+	<i class="fas fa-user-edit"></i> @PisiBlog
+  </span>
+  <span class="pl-1" data-toggle="tooltip" title="Yayınlanma Tarihi">
+	<i class="fas fa-clock"></i> 1 hafta önce
+  </span>
+  <span class="pl-1" data-toggle="tooltip" title="Görüntülenme Sayısı">
+	<i class="fas fa-eye"></i> 1000
+  </span>
+
+   <span class="pl-1" data-toggle="tooltip" title="Beğenilme Sayısı">
+	<i class="fas fa-heart"></i> 1000
+  </span>
+
+  <span class="pl-1" data-toggle="tooltip" title="Yorum Sayısı">
+	<i class="fas fa-comments"></i> 54646
+  </span>
+
+  <span class="pl-1" title="Tahmini okuma süresi" data-toggle="tooltip">
+	<i class="fas fa-book-reader"></i> 5 dakikada
+  </span>
+
+  <div class="social float-right">
+
+	<a href="#" data-toggle="tooltip" class="whatsapp-color hvr-float-shadow"  title="Whatsappta Paylaş"><i class="fab fa-whatsapp fa-lg"></i></a>
+	<a href="#" data-toggle="tooltip" class="facebook-color hvr-float-shadow" title="Facebookta Paylaş"><i class="fab fa-facebook fa-lg"></i></a>
+	<a href="#" data-toggle="tooltip" class="linkedin-color hvr-float-shadow" title="Linkendinde Paylaş"><i class="fab fa-linkedin fa-lg"></i></a>
+	<a href="#" data-toggle="tooltip" class="twitter-color hvr-float-shadow" title="Twitterda Paylaş"><i class="fab fa-twitter fa-lg"></i></a>
+  </div>
+
+  <hr>
+
+  <!-- Comments Form -->
+  <div class="card my-4">
+	<h5 class="card-header">我的评论</h5>
+	<div class="card-body">
+	  <form>
+		<div class="form-group">
+		  <input class="form-control" minlength="3" maxlength="25" type="text" name="guest_name" value="" placeholder="你的名字..." >
+		</div>
+		<div class="form-group">
+		  <input class="form-control" type="email" name="email" value="" placeholder="E-mail...">
+		</div>
+		<div class="form-group">
+		  <textarea  class="form-control" rows="3" maxlength="500" placeholder="您的评论......此字段是必填字段" required ></textarea>
+		</div>
+		<button type="submit" class="btn btn-primary btn-block"><i class="fas fa-share-square"></i> 提交</button>
+	  </form>
+	</div>
+  </div>
+
+  <!-- Single Comment
+  <div class="media mb-4">
+	<img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+	<div class="media-body">
+	  <button onclick="open_reply_div(1)" style="cursor:pointer" class="float-right nounderline btn btn-outline-secondary btn-sm"><i class="fas fa-reply"></i> Yanıtla</button>
+	  <h5 class="mt-0">Commenter Name</h5>
+	  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+	  <div id="div_reply_1" class="card my-4" style="display:none;">
+		<h5 class="card-header">Yanıtını Gönder</h5>
+		<div class="card-body">
+		  <form>
+				<div class="form-row">
+			   <div class="col-md-5 col-sm-12 form-group">
+				 <input class="form-control" minlength="3" maxlength="25" type="text" name="guest_name" value="" placeholder="Adınız..." >
+			   </div>
+			   <div class="col-md-7 col-sm-12 form-group">
+				 <input class="form-control" type="email" name="email" value="" placeholder="E-mail adresiniz...">
+			   </div>
+			 </div>
+			<div class="form-group">
+			  <textarea  class="form-control" rows="3" maxlength="500" placeholder="Yorumunuz... Bu alan gerekli" required ></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary btn-block"><i class="fas fa-share-square"></i> Gönder</button>
+		  </form>
+		</div>
+	  </div>
+	</div>
+  </div>-->
+
+
+  <!-- Comment with nested comments
+  <div class="media mb-4">
+	<img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+	<div class="media-body">
+	  <button onclick="open_reply_div(2)" style="cursor:pointer" class="float-right nounderline btn btn-outline-secondary btn-sm"><i class="fas fa-reply"></i> Yanıtla</button>
+
+	  <h5 class="mt-0">Commenter Name</h5>
+	  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+	  <div id="div_reply_2" class="card my-4" style="display:none;">
+		<h5 class="card-header">Yanıtını Gönder</h5>
+		<div class="card-body">
+		  <form>
+				<div class="form-row">
+			   <div class="col-md-5 col-sm-12 form-group">
+				 <input class="form-control" minlength="3" maxlength="25" type="text" name="guest_name" value="" placeholder="Adınız..." >
+			   </div>
+			   <div class="col-md-7 col-sm-12 form-group">
+				 <input class="form-control" type="email" name="email" value="" placeholder="E-mail adresiniz...">
+			   </div>
+			 </div>
+			<div class="form-group">
+			  <textarea  class="form-control" rows="3" maxlength="500" placeholder="Yorumunuz... Bu alan gerekli" required ></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary btn-block"><i class="fas fa-share-square"></i> Gönder</button>
+		  </form>
+		</div>
+	  </div>
+	  <div class="media mt-4">
+		<img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+		<div class="media-body">
+		  <h5 class="mt-0">Commenter Name</h5>
+		  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+		</div>
+	  </div>
+
+	  <div class="media mt-4">
+		<img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+		<div class="media-body">
+		  <h5 class="mt-0">Commenter Name</h5>
+		  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+		</div>
+	  </div>
+	</div>
+  </div>
+-->
+
+
